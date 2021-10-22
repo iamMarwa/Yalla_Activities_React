@@ -1,4 +1,4 @@
-import logo from '/Volumes/Marwa/yallactivities_website/src/images/logo.png';
+import logo from '../images/logo.png';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
