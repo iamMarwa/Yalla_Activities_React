@@ -37,7 +37,7 @@ function ListingScreen(){
                 image={obj.imageUrl}
                 title={obj.name}
                 description={obj.description}
-                price={obj.price + 'SAR'}
+                price={obj.price + ' SAR'}
             />
         )
     }
