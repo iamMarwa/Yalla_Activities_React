@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Home from './pages';
+import RegistrationScreen from './pages/RegistrationScreen';
+import LayoutRoute from './LayoutRoute';
+import AboutScreen from './pages/AboutScreen';
+import ActivitiesScreen from './pages/ActivitiesScreen';
+import CategoryScreen from './pages/CategoryScreen';
+import Navbar from './components/Navbar';
+import ListingScreen from './ListingScreen';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <LayoutRoute path="/" component={Home} exact />
+        <LayoutRoute path="/signin" exact={true} component={RegistrationScreen}  />
+        <LayoutRoute path="/about" exact={true} component={AboutScreen} />
+        <LayoutRoute path="/category" exact={true} component={CategoryScreen} />
+        <LayoutRoute path="/activities" exact={true} component={ActivitiesScreen} />
+        <LayoutRoute path="/listing" exact={true} component={ListingScreen} />
+        </Switch>
+
+      
+    </BrowserRouter>
   );
 }
 
