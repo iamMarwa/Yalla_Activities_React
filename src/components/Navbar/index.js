@@ -1,8 +1,18 @@
+import React, { useContext, useEffect }  from 'react';
 import logo from '../../images/logo.png';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {UserContext} from '../../UserContext';
 
 function NavBar(props) {
+    const { email } = useContext(UserContext);
+    // useEffect(
+    //     function () {
+
+    //     },
+    //     [ jsonwebtoken ]
+    // )
+
     return(
         <header className="p-3 bg-dark text-white">
             <div className="container">
@@ -40,7 +50,20 @@ function NavBar(props) {
                     </form>
 
                     <div className="text-end">
-                        <button type="button" className="btn btn-outline-light me-2">Login</button>
+                        { !email &&
+                            <Link 
+                            to={`/login`} 
+                            className="btn btn-outline-light me-2">
+                                Login
+                            </Link>
+                        }
+                        { email &&
+                            <Link 
+                            to={`/profile`} 
+                            className="btn btn-outline-light me-2">
+                                Profile
+                            </Link>
+                        }
                         <Link to={props.signUp.path} type="button" className="btn btn-warning">{props.signUp.label}</Link>
                     </div>
                 </div>

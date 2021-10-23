@@ -9,6 +9,8 @@ import ActivitiesScreen from './pages/ActivitiesScreen';
 import CategoryScreen from './pages/CategoryScreen';
 import Navbar from './components/Navbar';
 import ListingScreen from './ListingScreen';
+import LoginScreen from './pages/LoginScreen';
+import ProfileScreen  from './pages/ProfileScreen';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
         <LayoutRoute path="/category" exact={true} component={CategoryScreen} />
         <LayoutRoute path="/activities" exact={true} component={ActivitiesScreen} />
         <LayoutRoute path="/listing" exact={true} component={ListingScreen} />
+        <LayoutRoute path="/login" exact={true} component={LoginScreen} />
+        <LayoutRoute path="/profile" exact={true} component={ProfileScreen} />
         </Switch>
 
       
