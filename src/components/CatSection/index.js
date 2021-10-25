@@ -1,37 +1,56 @@
 import React from 'react'
+import {Fragment, useEffect, useState} from 'react'
 import Button from 'react-bootstrap/Button'
-import {CatContainer, CatWrapper,CatRow,Column1,TextWrapper,TopLine,Heading,Subtitle} from './CatElements'
-const CatSection = ({lightBg, id, imgStart, topLine, lightText, darkText,headLine,description}) => {
-    return (
-        <>
-        <CatContainer lightBg={lightBg} id={id}>
-            <CatWrapper>
-                <CatRow imgStart={imgStart}>
-                    <Column1>
-                    <TextWrapper>
-                        <TopLine>{topLine}</TopLine>
-                        <Heading lightText={lightText}><Button variant="light">HTML5</Button>
-                        <Button variant="light">CSS3</Button>
-                        <Button variant="light">JavaScript</Button>
-                        <Button variant="light">React</Button>
-                        <Button variant="light">Node JS</Button>
+import { Link } from 'react-router-dom'
+import CatCard from '../../CatCard'
+const CatSection = () => {
 
-                        </Heading>
-                        <Subtitle darkText={darkText}><Button variant="light">PHP</Button>
-                        <Button variant="light">Laravel</Button>
-                        <Button variant="light">Python</Button>
-                        <Button variant="light">Dart</Button>
-                        <Button variant="light">Flutter</Button>
-                        </Subtitle>
-                        
-                         </TextWrapper>
-                    </Column1>
-                </CatRow>
-            </CatWrapper>
+    const [items, setItems] = useState([]);
 
-        </CatContainer>
-            
-        </>
+    useEffect(
+        function(){
+            fetch('http://localhost:3001/activities/view')
+            .then(
+                function(backendResponse){
+                    return backendResponse.json()
+                }
+            )
+            .then(
+                function(json){
+                    const moreItems = [...items, ...json]
+                    setItems(moreItems);
+                }
+            )
+            .catch(
+                function(){
+                    alert("Something went wrong. Please try again.")
+                }
+            )
+        },
+        [  ]
+    )
+    function createItem(obj){
+        return (
+            <CatCard 
+                category={obj.category}
+            />
+        )
+    }
+
+    return(
+        <Fragment>
+            <div className="container" style={{minHeight: 'calc(100vh - 240px)'}}>
+                <h1 className="my-5">Category</h1>
+
+                <ul>
+                    { items.map(createItem)}
+                </ul>
+
+                <Link to='/category' className="btn btn-outline-dark me-2">Load More</Link>
+            </div>
+            <br>
+            </br><br></br>
+        </Fragment>
     )
 }
 

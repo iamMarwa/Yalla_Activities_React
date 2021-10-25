@@ -64,7 +64,11 @@ function NavBar(props) {
                                 Profile
                             </Link>
                         }
-                        <Link to={props.signUp.path} type="button" className="btn btn-warning">{props.signUp.label}</Link>
+                        <Link to={props.signUp.path}>
+                            <button type="button" className="btn btn-outline-light me-2">
+                            {props.signUp.label}
+                            </button>
+                            </Link>
                     </div>
                 </div>
             </div>

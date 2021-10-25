@@ -14,12 +14,9 @@ const HeroSection = () => {
                 <VideoBg autoPlay loop muted src={Video} type='video/mp4'/>
             </HeroBg>
             <HeroContent>
-                <HeroH1>Hi! I am Marwa</HeroH1>
-                <HeroP>A Developer who creates web applications and mobile applications.
+                <HeroH1>Yalla! Activities</HeroH1>
+                <HeroP>Your Self-Exploration is here.
                 </HeroP>
-                <HeroBtnWrapper>
-                    <Button to="projects" smooth={true} duration={500} spy={true} onMouseEnter={onHover} onMouseLeave={onHover} primary='true' dark='true'>Check My Work{hover? <ArrowForward /> : <ArrowRight/>}</Button>
-                </HeroBtnWrapper>
             </HeroContent>
             
         </HeroContainer>

@@ -198,7 +198,7 @@ function RegistrationForm() {
                 onClick={register}
                 className="btn btn-primary"
                 style={{"padding": "10px", "font-size": "16px"}}>
-                    Register your Interest
+                    Sign Up
                 </button>
             }
 
@@ -223,7 +223,6 @@ function RegistrationForm() {
                         ) 
                     }
                     </ul>
-
                 </div>
             }
 
@@ -236,6 +235,8 @@ function RegistrationForm() {
                 state === 'unsuccessful' &&
                 <div className="mt-5 alert alert-danger">Something went wrong. Please try again.</div>
             }
+    <br></br><br></br>
+            
         </div>
     )
 }
